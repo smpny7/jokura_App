@@ -110,12 +110,11 @@ class MainActivity : AppCompatActivity() {
 
 //            val (state, address, member_online, member_total, version, rcon) = result
 
-            textView1.text = result[0]
-            textView2.text = result[1]
-            textView3.text = result[2]
-            textView4.text = result[3]
-            textView5.text = result[4]
-            textView6.text = result[5]
+            state.text = result[0]
+            address.text = result[1]
+            member.text = result[2] + " / " + result[3]
+            version.text = result[4]
+            rcon.text = result[5]
         }
     }
 }
