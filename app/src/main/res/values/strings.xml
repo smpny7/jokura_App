@@ -3,6 +3,7 @@
     <string name="header">サーバ稼働状況</string>
 
     <string name="altHeader">HEADER</string>
+    <string name="altReload">RELOAD</string>
     <string name="altBackground">BACKGROUND</string>
     <string name="altBox">BOX</string>
     <string name="altWorking">WORKING</string>

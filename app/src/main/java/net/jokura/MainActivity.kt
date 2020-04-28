@@ -3,7 +3,6 @@ package net.jokura
 import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import net.jokura.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -71,16 +70,21 @@ class MainActivity : AppCompatActivity() {
                 val detailJsonObj = parentJsonArray.getJSONObject(0)  //これもJSONObjectとして取得
 
                 //moviesの0番目のデータのtitle項目をStringで取ります。これで中身を取れました。
-                val state: Int = detailJsonObj.getInt("state")  // => 2016
-                //公開年を取りたい時も同じようにすれば良いです。
-                val address: String = detailJsonObj.getString("address")  // => Your Name.
+                val state: String = detailJsonObj.getString("state")
+                val address: String = detailJsonObj.getString("address")
+                val memberOnline: String = detailJsonObj.getString("member_online")
+                val memberTotal: String = detailJsonObj.getString("member_total")
+                val version: String = detailJsonObj.getString("version")
+                val rcon: String = detailJsonObj.getString("rcon")
 
 //                val data = Server(1, "jokura-vanila.work", 2, 12, "1.14.4", 25565)
 
-                val data: Array<String> = arrayOf("1", "jokura-vanila.work", "2", "12", "1.14.4", "25565")
+                if (!state.isNullOrEmpty()) {
+                    return arrayOf(state, address, memberOnline, memberTotal, version, rcon)
+                }
 
                 //Stringでreturnしてあげましょう。
-                return data  // => Your Name. - 2016
+//                return data  // => Your Name. - 2016
 
                 //ここから下は、接続エラーとかJSONのエラーとかで失敗した時にエラーを処理する為のものです。
             } catch (e: MalformedURLException) {

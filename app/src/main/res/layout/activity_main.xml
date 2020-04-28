@@ -33,6 +33,16 @@
         app:layout_constraintTop_toTopOf="@+id/header" />
 
     <ImageView
+        android:id="@+id/reload"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/altReload"
+        android:scaleType="fitXY"
+        android:src="@drawable/reload"
+        app:layout_constraintEnd_toEndOf="@+id/header"
+        app:layout_constraintTop_toTopOf="@id/header" />
+
+    <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -156,7 +166,7 @@
                 android:layout_width="105dp"
                 android:layout_height="104dp"
                 android:scaleType="fitXY"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:src="@drawable/box3"
                 android:contentDescription="@string/altBox"/>
 
@@ -252,7 +262,8 @@
                 android:layout_width="105dp"
                 android:layout_height="104dp"
                 android:scaleType="fitXY"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="112dp"
                 android:src="@drawable/box3"
                 android:contentDescription="@string/altBox"/>
 
@@ -260,35 +271,33 @@
                 android:id="@+id/rcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_alignStart="@+id/box5"
+                android:layout_alignEnd="@+id/box5"
+                android:layout_marginStart="22dp"
                 android:layout_marginTop="43dp"
+                android:layout_marginEnd="22dp"
+                android:text="@string/defRcon"
+                android:textAlignment="center"
                 android:textColor="@color/font"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="@string/defRcon"
-                android:textAlignment="center" />
+                app:layout_constraintEnd_toEndOf="@id/box5" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rcon"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="7.8dp"
-                android:textColor="@color/font"
-                android:textSize="12sp"
+                android:layout_alignStart="@+id/box5"
+                android:layout_alignEnd="@+id/box5"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="35dp"
                 android:text="@string/labelRcon"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/font"
+                android:textSize="12sp" />
 
         </RelativeLayout>
-
-
-        <ImageView
-            android:id="@+id/box6"
-            android:layout_width="104dp"
-            android:layout_height="104dp"
-            android:scaleType="fitXY"
-            android:layout_marginLeft="8dp"
-            android:src="@drawable/box3" />
 
     </LinearLayout>
 
@@ -296,11 +305,8 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
