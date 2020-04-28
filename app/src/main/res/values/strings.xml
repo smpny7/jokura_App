@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">情クラ！</string>
     <string name="header">サーバ稼働状況</string>
+
     <string name="altHeader">HEADER</string>
     <string name="altBackground">BACKGROUND</string>
     <string name="altBox">BOX</string>
     <string name="altWorking">WORKING</string>
+
+    <string name="defState">取得できませんでした</string>
+    <string name="defAddress">- - - - - - - - - - - - - -</string>
+    <string name="labelAddress">サーバアドレス</string>
+    <string name="defMember">- / -</string>
+    <string name="labelMember">メンバー</string>
+    <string name="defVersion">- - - - -</string>
+    <string name="labelVersion">バージョン</string>
+    <string name="defRcon">- - - - -</string>
+    <string name="labelRcon">RCON</string>
+
 </resources>

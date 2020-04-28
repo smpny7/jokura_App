@@ -72,7 +72,7 @@
             android:layout_height="176dp"
             android:layout_marginTop="36dp"
             android:scaleType="fitXY"
-            android:src="@drawable/working"
+            android:src="@drawable/notworking"
             android:contentDescription="@string/altWorking"/>
 
         <TextView
@@ -85,7 +85,7 @@
             android:textColor="@color/font"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:text="正常に稼働中"
+            android:text="@string/defState"
             android:textAlignment="center" />
 
     </RelativeLayout>
@@ -127,7 +127,7 @@
                 android:textColor="@color/font"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:text="jokura-vanila.work"
+                android:text="@string/defAddress"
                 android:textAlignment="center" />
 
             <TextView
@@ -138,7 +138,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="サーバアドレス"
+                android:text="@string/labelAddress"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -169,7 +169,7 @@
                 android:textColor="@color/font"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:text="2 / 12"
+                android:text="@string/defMember"
                 android:textAlignment="center" />
 
             <TextView
@@ -180,7 +180,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="メンバー"
+                android:text="@string/labelMember"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -223,7 +223,7 @@
                 android:textColor="@color/font"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="1.14.4"
+                android:text="@string/defVersion"
                 android:textAlignment="center" />
 
             <TextView
@@ -234,7 +234,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="バージョン"
+                android:text="@string/labelVersion"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -265,7 +265,7 @@
                 android:textColor="@color/font"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="25575"
+                android:text="@string/defRcon"
                 android:textAlignment="center" />
 
             <TextView
@@ -276,7 +276,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="RCON"
+                android:text="@string/labelRcon"
                 android:textAlignment="center" />
 
         </RelativeLayout>

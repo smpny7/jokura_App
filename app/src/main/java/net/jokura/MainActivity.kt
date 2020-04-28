@@ -109,8 +109,20 @@ class MainActivity : AppCompatActivity() {
             if(result == null) return
 
 //            val (state, address, member_online, member_total, version, rcon) = result
+            if (result[0] == "1") {
+                state.text = "正常に稼働中"
+                workingImageView.setImageResource(R.drawable.working)
+            } else if (result[0] == "2") {
+                state.text = "サーバ起動中"
+                workingImageView.setImageResource(R.drawable.notworking)
+            } else if (result[0] == "3") {
+                state.text = "サーバ停止中"
+                workingImageView.setImageResource(R.drawable.notworking)
+            } else {
+                state.text = "取得できませんでした"
+                workingImageView.setImageResource(R.drawable.notworking)
+            }
 
-            state.text = result[0]
             address.text = result[1]
             member.text = result[2] + " / " + result[3]
             version.text = result[4]
