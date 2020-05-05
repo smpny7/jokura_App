@@ -3,6 +3,7 @@ package net.jokura
 import android.content.pm.ActivityInfo
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
@@ -16,16 +17,25 @@ import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
+    private val handler = Handler()
+    private var r: Runnable? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        HitAPITask().execute("https://jokura.net/api")
+//        HitAPITask().execute("https://jokura.net/api")
 
         reload.setOnClickListener {
             //ボタンがクリックされたらAPIを叩く。
             HitAPITask().execute("https://jokura.net/api")
         }
+
+        r = Runnable {
+            HitAPITask().execute("https://jokura.net/api")
+            handler.postDelayed(r, 1000)
+        }
+        handler.post(r)
     }
 
     inner class HitAPITask: AsyncTask<String, String, String>(){
