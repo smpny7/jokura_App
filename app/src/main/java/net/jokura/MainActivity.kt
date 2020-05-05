@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        HitAPITask().execute("https://jokura.net/api/test.php")
+        HitAPITask().execute("https://jokura.net/api")
 
         reload.setOnClickListener {
             //ボタンがクリックされたらAPIを叩く。
-            HitAPITask().execute("https://jokura.net/api/test.php")
+            HitAPITask().execute("https://jokura.net/api")
         }
     }
 
@@ -115,24 +115,40 @@ class MainActivity : AppCompatActivity() {
 
             val server = result.split(",").map { it.trim() }
 
-            if (server[0] == "1") {
-                state.text = "正常に稼働中"
-                workingImageView.setImageResource(R.drawable.working)
-            } else if (server[0] == "2") {
-                state.text = "サーバ起動中"
-                workingImageView.setImageResource(R.drawable.notworking)
-            } else if (server[0] == "3") {
-                state.text = "サーバ停止中"
-                workingImageView.setImageResource(R.drawable.notworking)
-            } else {
-                state.text = "取得できませんでした"
-                workingImageView.setImageResource(R.drawable.notworking)
+            when (server[0].toIntOrNull()) {
+                1 -> {
+                    state.text = "正常に稼働中"
+                    address.text = server[1]
+                    member.text = server[2] + " / " + server[3]
+                    version.text = server[4]
+                    rcon.text = server[5]
+                    workingImageView.setImageResource(R.drawable.working)
+                }
+                2 -> {
+                    state.text = "サーバ起動中"
+                    address.text = "- - - - - - - - - - - - - -"
+                    member.text = "- / -"
+                    version.text = "- - - - -"
+                    rcon.text = "25565"
+                    workingImageView.setImageResource(R.drawable.notworking)
+                }
+                3 -> {
+                    state.text = "サーバ停止中"
+                    address.text = "- - - - - - - - - - - - - -"
+                    member.text = "- / -"
+                    version.text = "- - - - -"
+                    rcon.text = "25565"
+                    workingImageView.setImageResource(R.drawable.notworking)
+                }
+                else -> {
+                    state.text = "取得できませんでした"
+                    address.text = "- - - - - - - - - - - - - -"
+                    member.text = "- / -"
+                    version.text = "- - - - -"
+                    rcon.text = "- - - - -"
+                    workingImageView.setImageResource(R.drawable.notworking)
+                }
             }
-
-            address.text = server[1]
-            member.text = server[2] + " / " + server[3]
-            version.text = server[4]
-            rcon.text = server[5]
         }
     }
 }
