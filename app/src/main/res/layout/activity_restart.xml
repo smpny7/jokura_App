@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".RestartActivity">
 
 <!--    alt変更！！！！-->
@@ -11,7 +12,7 @@
     <ImageView
         android:id="@+id/hd_background"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="320dp"
         android:layout_alignParentTop="true"
         android:scaleType="fitXY"
         android:src="@drawable/hd_background"
@@ -19,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/altHeader" />
+        android:contentDescription="@string/altRestartHdBackground" />
 
     <ImageView
         android:id="@+id/hd_back"
@@ -33,14 +34,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/altHeader" />
+        android:contentDescription="@string/altRestartHdBack" />
 
     <TextView
         android:id="@+id/hd_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
-        android:text="サーバ再起動"
+        android:text="@string/defRestartHdTitle"
         android:textAlignment="center"
         android:textColor="@color/header"
         android:textSize="20sp"
@@ -61,27 +62,28 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/altHeader" />
+        android:contentDescription="@string/altRestartHdReload" />
 
     <ImageView
         android:id="@+id/body_background"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/altRestartBodyBackground"
         android:scaleType="fitXY"
         android:src="@drawable/body_background"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:contentDescription="@string/altHeader" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/horizontal1"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="515dp"
+        android:layout_marginBottom="455dp"
         android:layout_marginEnd="40dp"
         android:layout_alignParentTop="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,9 +94,9 @@
             android:id="@+id/hd_possible"
             android:layout_width="127dp"
             android:layout_height="120dp"
-            android:contentDescription="@string/altHeader"
+            android:contentDescription="@string/altRestartHdPossible"
             android:scaleType="fitXY"
-            android:src="@drawable/hd_possible"
+            android:src="@drawable/hd_impossible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -103,7 +105,7 @@
             android:id="@+id/relative1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +115,7 @@
                 android:id="@+id/hd_time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="所要時間 40s"
+                android:text="@string/defRestartHdTimeText"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
@@ -128,7 +130,7 @@
                 android:layout_below="@+id/hd_time_text"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="2dp"
-                android:text="実行可能です"
+                android:text="@string/defRestartHdPossibleText"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="28sp"
@@ -153,9 +155,9 @@
             android:id="@+id/note_background"
             android:layout_width="350dp"
             android:layout_height="140dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/note_background"
-            android:contentDescription="@string/altBox"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/note_background_impossible"
+            android:contentDescription="@string/altRestartNoteBackground"/>
 
         <TextView
             android:id="@+id/note_ttl"
@@ -163,12 +165,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginStart="33dp"
-            android:text="注意事項"
+            android:text="@string/defRestartNoteTtl"
             android:textAlignment="center"
-            android:textColor="@color/font"
+            android:textColor="#FF6465"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:shadowColor="#8CC7F6"
+            android:shadowColor="#F2ACAE"
             android:shadowDx="0"
             android:shadowDy="3"
             android:shadowRadius="6"
@@ -183,22 +185,23 @@
             android:layout_marginTop="7.8dp"
             android:layout_marginStart="29dp"
             android:paddingTop="8dp"
-            android:text="・ボタン押下後，10秒後に再起動が行われます"
+            android:text="@string/defRestartNoteText1"
             android:textAlignment="textStart"
-            android:textColor="#4AB2FF"
+            android:textColor="#FF6465"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="@+id/note_background" />
 
         <TextView
+            android:id="@+id/note_text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/note_text1"
             android:layout_marginTop="7.8dp"
             android:layout_marginStart="29dp"
-            android:text="・サーバに残っているメンバーは切断されます"
+            android:text="@string/defRestartNoteText2"
             android:textAlignment="textStart"
-            android:textColor="#4AB2FF"
+            android:textColor="#FF6465"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="@+id/note_background" />
@@ -209,10 +212,9 @@
         android:id="@+id/btn_restart"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="27dp"
-        android:contentDescription="@string/altHeader"
+        android:contentDescription="@string/altRestartBtnRestart"
         android:scaleType="fitXY"
-        android:src="@drawable/btn_restart_possible"
+        android:src="@drawable/btn_restart_impossible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relative2" />
@@ -223,9 +225,9 @@
         android:layout_height="45dp"
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="5dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@drawable/btm"
-        android:contentDescription="@string/altBox"
+        android:contentDescription="@string/altRestartBtm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 

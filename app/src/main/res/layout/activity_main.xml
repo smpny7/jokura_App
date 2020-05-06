@@ -17,14 +17,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/altHeader" />
+        android:contentDescription="@string/altMainHeader" />
 
     <TextView
         android:id="@+id/headerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="@string/header"
+        android:text="@string/MainHeader"
         android:textAlignment="center"
         android:textColor="@color/header"
         android:textSize="20sp"
@@ -37,7 +37,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/altReload"
+        android:contentDescription="@string/altMainReload"
         android:scaleType="fitXY"
         android:src="@drawable/reload"
         app:layout_constraintEnd_toEndOf="@+id/header"
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/altBackground"/>
+        android:contentDescription="@string/altMainBackground"/>
 
     <RelativeLayout
         android:id="@+id/relative1"
@@ -73,7 +73,7 @@
             android:layout_height="268dp"
             android:scaleType="fitXY"
             android:src="@drawable/box1"
-            android:contentDescription="@string/altBox"/>
+            android:contentDescription="@string/altMainBox"/>
 
         <ImageView
             android:id="@+id/workingImageView"
@@ -84,7 +84,7 @@
             android:layout_marginTop="36dp"
             android:scaleType="fitXY"
             android:src="@drawable/notworking"
-            android:contentDescription="@string/altWorking"/>
+            android:contentDescription="@string/altMainWorking"/>
 
         <TextView
             android:id="@+id/state"
@@ -96,7 +96,7 @@
             android:textColor="@color/font"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:text="@string/defState"
+            android:text="@string/defMainState"
             android:textAlignment="center" />
 
     </RelativeLayout>
@@ -127,7 +127,7 @@
                 android:layout_height="104dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/box2"
-                android:contentDescription="@string/altBox"/>
+                android:contentDescription="@string/altMainBox"/>
 
             <TextView
                 android:id="@+id/address"
@@ -138,7 +138,7 @@
                 android:textColor="@color/font"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:text="@string/defAddress"
+                android:text="@string/defMainAddress"
                 android:textAlignment="center" />
 
             <TextView
@@ -149,7 +149,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="@string/labelAddress"
+                android:text="@string/MainLabelAddress"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -169,7 +169,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginStart="8dp"
                 android:src="@drawable/box3"
-                android:contentDescription="@string/altBox"/>
+                android:contentDescription="@string/altMainBox"/>
 
             <TextView
                 android:id="@+id/member"
@@ -180,7 +180,7 @@
                 android:textColor="@color/font"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:text="@string/defMember"
+                android:text="@string/defMainMember"
                 android:textAlignment="center" />
 
             <TextView
@@ -191,7 +191,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="@string/labelMember"
+                android:text="@string/MainLabelMember"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -223,7 +223,7 @@
                 android:layout_height="104dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/box3"
-                android:contentDescription="@string/altBox"/>
+                android:contentDescription="@string/altMainBox"/>
 
             <TextView
                 android:id="@+id/version"
@@ -234,7 +234,7 @@
                 android:textColor="@color/font"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="@string/defVersion"
+                android:text="@string/defMainVersion"
                 android:textAlignment="center" />
 
             <TextView
@@ -245,7 +245,7 @@
                 android:layout_marginTop="7.8dp"
                 android:textColor="@color/font"
                 android:textSize="12sp"
-                android:text="@string/labelVersion"
+                android:text="@string/MainLabelVersion"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -266,7 +266,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="112dp"
                 android:src="@drawable/box3"
-                android:contentDescription="@string/altBox"/>
+                android:contentDescription="@string/altMainBox"/>
 
             <TextView
                 android:id="@+id/rcon"
@@ -277,7 +277,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="43dp"
                 android:layout_marginEnd="22dp"
-                android:text="@string/defRcon"
+                android:text="@string/defMainRcon"
                 android:textAlignment="center"
                 android:textColor="@color/font"
                 android:textSize="20sp"
@@ -293,7 +293,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="35dp"
-                android:text="@string/labelRcon"
+                android:text="@string/MainLabelRcon"
                 android:textAlignment="center"
                 android:textColor="@color/font"
                 android:textSize="12sp" />
