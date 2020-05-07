@@ -1,5 +1,6 @@
 package net.jokura
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
@@ -31,7 +32,7 @@ class RestartActivity : AppCompatActivity() {
 
         overridePendingTransition(R.animator.slide_in_right, R.animator.slide_out_left)
 
-        HitAPITask().execute("https://jokura.net/api")
+        HitAPITask().execute("https://jokura.net/api/restart")
 
         hd_back.setOnClickListener {
             finish()
@@ -40,7 +41,12 @@ class RestartActivity : AppCompatActivity() {
 
         hd_reload.setOnClickListener {
             //ボタンがクリックされたらAPIを叩く。
-            HitAPITask().execute("https://jokura.net/api")
+            HitAPITask().execute("https://jokura.net/api/restart")
+        }
+
+        btm.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         val handler = Handler()
@@ -48,7 +54,7 @@ class RestartActivity : AppCompatActivity() {
 
         r = Runnable {
             HitAPITask().execute("https://jokura.net/api")
-            handler.postDelayed(r, 5000)
+            handler.postDelayed(r, 10000)
         }
         handler.post(r)
     }

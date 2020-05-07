@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         reload.setOnClickListener {
-            HitAPITask().execute("https://jokura.net/api")
+            HitAPITask().execute("https://jokura.net/api/server")
         }
 
         r = Runnable {
-            HitAPITask().execute("https://jokura.net/api")
+            HitAPITask().execute("https://jokura.net/api/server")
             handler.postDelayed(r, 1000)
         }
         handler.post(r)
