@@ -1,5 +1,6 @@
 package net.jokura
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -13,6 +14,11 @@ class TopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top)
+
+        btn_restart.setOnClickListener {
+            val intent = Intent(this, RestartActivity::class.java)
+            startActivity(intent)
+        }
 
         fun monoBitmap(outBitmap: Bitmap, inBitmap: Bitmap) {
             val width: Int = outBitmap.width

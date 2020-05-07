@@ -25,7 +25,13 @@ class RestartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restart)
 
+        overridePendingTransition(R.animator.slide_in_right, R.animator.slide_out_left)
+
 //        HitAPITask().execute("https://jokura.net/api")
+
+        hd_back.setOnClickListener {
+            finish()
+        }
 
         hd_reload.setOnClickListener {
             //ボタンがクリックされたらAPIを叩く。
