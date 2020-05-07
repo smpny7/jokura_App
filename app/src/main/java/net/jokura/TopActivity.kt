@@ -20,6 +20,11 @@ class TopActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btm.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         fun monoBitmap(outBitmap: Bitmap, inBitmap: Bitmap) {
             val width: Int = outBitmap.width
             val height: Int = outBitmap.height

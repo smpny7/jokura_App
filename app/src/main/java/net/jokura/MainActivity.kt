@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        close.setOnClickListener {
+            finish()
+        }
+
         reload.setOnClickListener {
             HitAPITask().execute("https://jokura.net/api")
         }

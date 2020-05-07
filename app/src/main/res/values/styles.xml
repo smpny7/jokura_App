@@ -11,10 +11,10 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@style/Animation.Activity</item>
+<!--        <item name="android:windowAnimationStyle">@style/Animation.Activity</item>-->
     </style>
 
-    <style name="Animation" parent="android:Animation" />
+<!--    <style name="Animation" parent="android:Animation" />-->
     <style name="Animation.Activity" parent="android:Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@animator/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@animator/slide_out_left</item>

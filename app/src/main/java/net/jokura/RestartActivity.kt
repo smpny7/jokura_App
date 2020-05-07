@@ -4,6 +4,8 @@ import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
+import android.view.KeyEvent
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_restart.*
@@ -18,8 +20,10 @@ import java.net.URL
 
 class RestartActivity : AppCompatActivity() {
 
-    private val handler = Handler()
-    private var r: Runnable? = null
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.animator.slide_in_left, R.animator.slide_out_right)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +31,11 @@ class RestartActivity : AppCompatActivity() {
 
         overridePendingTransition(R.animator.slide_in_right, R.animator.slide_out_left)
 
-//        HitAPITask().execute("https://jokura.net/api")
+        HitAPITask().execute("https://jokura.net/api")
 
         hd_back.setOnClickListener {
             finish()
+            overridePendingTransition(R.animator.slide_in_left, R.animator.slide_out_right)
         }
 
         hd_reload.setOnClickListener {
@@ -38,9 +43,12 @@ class RestartActivity : AppCompatActivity() {
             HitAPITask().execute("https://jokura.net/api")
         }
 
+        val handler = Handler()
+        var r: Runnable? = null
+
         r = Runnable {
             HitAPITask().execute("https://jokura.net/api")
-            handler.postDelayed(r, 1000)
+            handler.postDelayed(r, 5000)
         }
         handler.post(r)
     }
