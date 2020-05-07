@@ -7,8 +7,6 @@
     android:background="#ffffff"
     tools:context=".RestartActivity">
 
-<!--    alt変更！！！！-->
-
     <ImageView
         android:id="@+id/hd_background"
         android:layout_width="match_parent"
