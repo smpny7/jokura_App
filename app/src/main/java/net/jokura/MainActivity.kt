@@ -21,12 +21,14 @@ import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
-    private val handler = Handler()
-    private var r: Runnable? = null
+//    private val handler = Handler()
+//    private var r: Runnable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        HitAPITask().execute("https://jokura.net/api/server")
 
         close.setOnClickListener {
             finish()
@@ -36,11 +38,11 @@ class MainActivity : AppCompatActivity() {
             HitAPITask().execute("https://jokura.net/api/server")
         }
 
-        r = Runnable {
-            HitAPITask().execute("https://jokura.net/api/server")
-            handler.postDelayed(r, 1000)
-        }
-        handler.post(r)
+//        r = Runnable {
+//            HitAPITask().execute("https://jokura.net/api/server")
+//            handler.postDelayed(r, 1000)
+//        }
+//        handler.post(r)
     }
 
     inner class HitAPITask: AsyncTask<String, String, String>(){
@@ -144,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                     address.text = "- - - - - - - - - - - - - -"
                     member.text = "- / -"
                     version.text = "- - - - -"
-                    rcon.text = "25565"
+                    rcon.text = "25575"
                     workingImageView.setImageResource(R.drawable.notworking)
                 }
                 3 -> {
@@ -152,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                     address.text = "- - - - - - - - - - - - - -"
                     member.text = "- / -"
                     version.text = "- - - - -"
-                    rcon.text = "25565"
+                    rcon.text = "25575"
                     workingImageView.setImageResource(R.drawable.notworking)
                 }
                 else -> {

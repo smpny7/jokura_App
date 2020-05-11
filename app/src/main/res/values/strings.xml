@@ -28,11 +28,17 @@
     <string name="altRestartBtm">BOTTOM</string>
 
     <string name="defRestartHdTitle">サーバ再起動</string>
-    <string name="defRestartHdTimeText">所要時間 40s</string>
+    <string name="defRestartHdTimeText">所要時間 80s</string>
     <string name="defRestartHdPossibleText">実行できません</string>
     <string name="defRestartNoteTtl">考えられる原因</string>
     <string name="defRestartNoteText1">・サーバが起動していない，又はアクセスできない</string>
     <string name="defRestartNoteText2">・他のユーザが現在サーバ処理を行っている</string>
 
+    <string name="defBackupHdTitle">バックアップ</string>
+    <string name="defBackupHdTimeText">所要時間 90s</string>
+    <string name="defBackupHdPossibleText">実行できません</string>
+    <string name="defBackupNoteTtl">考えられる原因</string>
+    <string name="defBackupNoteText1">・サーバが起動していない，又はアクセスできない</string>
+    <string name="defBackupNoteText2">・他のユーザが現在サーバ処理を行っている</string>
 
 </resources>

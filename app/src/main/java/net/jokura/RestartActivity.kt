@@ -7,9 +7,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.KeyEvent
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_restart.*
+import kotlinx.android.synthetic.main.activity_restart.btm
+import kotlinx.android.synthetic.main.activity_restart.btn_restart
+import kotlinx.android.synthetic.main.activity_restart.hd_reload
+import kotlinx.android.synthetic.main.activity_top.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -44,19 +49,48 @@ class RestartActivity : AppCompatActivity() {
             HitAPITask().execute("https://jokura.net/api/restart")
         }
 
+        btn_restart.setOnClickListener {
+            fun View.notPressTwice() {
+                this.isEnabled = false
+                this.postDelayed({
+                    this.isEnabled = true
+                }, 2000L)
+            }
+
+            btn_restart.notPressTwice()
+            hd_back.notPressTwice()
+            hd_reload.notPressTwice()
+            btm.notPressTwice()
+
+            btn_restart.setImageResource(R.drawable.btn_restart_impossible)
+            HitAPITask().execute("https://jokura.net/api/restart?check=1")
+            Handler().postDelayed(Runnable {
+                if (hd_possible_text.text == "実行可能です") {
+                    HitAPITask().execute("https://jokura.net/api/restart/do.php?from=jokura.net")
+                    Toast.makeText(applicationContext, "サーバに処理を送信しました！", Toast.LENGTH_LONG).show()
+                    finish()
+                    overridePendingTransition(R.animator.slide_in_left, R.animator.slide_out_right)
+                } else {
+                    Toast.makeText(applicationContext, "Error: 処理を送信できませんでした", Toast.LENGTH_LONG).show()
+                    finish()
+                    overridePendingTransition(R.animator.slide_in_left, R.animator.slide_out_right)
+                }
+            }, 2000L)
+        }
+
         btm.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        val handler = Handler()
-        var r: Runnable? = null
-
-        r = Runnable {
-            HitAPITask().execute("https://jokura.net/api")
-            handler.postDelayed(r, 10000)
-        }
-        handler.post(r)
+//        val handler = Handler()
+//        var r: Runnable? = null
+//
+//        r = Runnable {
+//            HitAPITask().execute("https://jokura.net/api")
+//            handler.postDelayed(r, 10000)
+//        }
+//        handler.post(r)
     }
 
     inner class HitAPITask: AsyncTask<String, String, String>(){
@@ -109,6 +143,7 @@ class RestartActivity : AppCompatActivity() {
 //                val year: Int = detailJsonObj.getInt("year")  // => 2016
 
                 val able: Int = detailJsonObj.getInt("able")
+                val check: Int = detailJsonObj.getInt("check")
 //                val address: String = "a"
 //                val memberOnline: Int = detailJsonObj.getInt("member_online")
 //                val memberTotal: Int = detailJsonObj.getInt("member_total")
@@ -116,7 +151,7 @@ class RestartActivity : AppCompatActivity() {
 //                val rcon: Int = detailJsonObj.getInt("rcon")
 
                 //Stringでreturnしてあげましょう。
-                return "$able"  // => Your Name. - 2016
+                return "$able, $check"  // => Your Name. - 2016
 
                 //ここから下は、接続エラーとかJSONのエラーとかで失敗した時にエラーを処理する為のものです。
             } catch (e: MalformedURLException) {
@@ -158,7 +193,11 @@ class RestartActivity : AppCompatActivity() {
                     note_text2.setTextColor(Color.parseColor("#4AB2FF"));
                     hd_possible.setImageResource(R.drawable.hd_possible)
                     note_background.setImageResource(R.drawable.note_background_possible)
-                    btn_restart.setImageResource(R.drawable.btn_restart_possible)
+                    if (restart[1] == "1") {
+                        btn_restart.setImageResource(R.drawable.btn_restart_impossible)
+                    } else {
+                        btn_restart.setImageResource(R.drawable.btn_restart_possible)
+                    }
                 }
                 else -> {
                     hd_possible_text.text = "実行できません"

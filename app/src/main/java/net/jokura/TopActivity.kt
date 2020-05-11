@@ -37,6 +37,11 @@ class TopActivity : AppCompatActivity() {
             HitAPITask().execute("https://jokura.net/api/top")
         }
 
+        btn_backup.setOnClickListener {
+            val intent = Intent(this, BackupActivity::class.java)
+            startActivity(intent)
+        }
+
         btn_restart.setOnClickListener {
             val intent = Intent(this, RestartActivity::class.java)
             startActivity(intent)
@@ -47,14 +52,14 @@ class TopActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val handler = Handler()
-        var r: Runnable? = null
-
-        r = Runnable {
-            HitAPITask().execute("https://jokura.net/api/top")
-            handler.postDelayed(r, 150000)
-        }
-        handler.post(r)
+//        val handler = Handler()
+//        var r: Runnable? = null
+//
+//        r = Runnable {
+//            HitAPITask().execute("https://jokura.net/api/top")
+//            handler.postDelayed(r, 150000)
+//        }
+//        handler.post(r)
 
         fun monoBitmap(outBitmap: Bitmap, inBitmap: Bitmap) {
             val width: Int = outBitmap.width
